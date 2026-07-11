@@ -58,7 +58,7 @@ public class BoulderControls : MonoBehaviour
         cameraForward.Normalize();
         cameraRight.Normalize();
 
-        // Convert WASD input into camera-relative movement.
+        // Convert into camera relative movement.
         Vector3 moveDirection =cameraForward * moveInput.y + cameraRight * moveInput.x;
 
         if (moveDirection.sqrMagnitude > 1f)
