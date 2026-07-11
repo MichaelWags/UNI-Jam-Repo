@@ -1349,6 +1349,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2392998076885811192, guid: 2f240e0c45c307843b88533d615dbf71, type: 3}
+      propertyPath: forceStrength
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392998076885811192, guid: 2f240e0c45c307843b88533d615dbf71, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 250251225}

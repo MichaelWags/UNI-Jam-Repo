@@ -1,3 +1,7 @@
+//!!!Warning about this script/ todo. The movement was based of physical torque but Michael W showed some code and it can just be done with force
+// The rotation looks odd at times but this gives EZ aircontrol ( compared to torque which requires a ground to move the ball, so no air control)
+// There is still some code left over from the torque but I left it because who knows if we will switch back for any reason.
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +11,7 @@ public class BoulderControls : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private float torqueStrength = 20f;
-    [SerializeField] private float airControlStrength = 20f;
+    [SerializeField] private float forceStrength = 20f;
 
     private Rigidbody rb;
     private Vector2 moveInput;
@@ -70,7 +74,9 @@ public class BoulderControls : MonoBehaviour
         // Torque must be perpendicular to the desired movement.
         Vector3 torqueDirection = Vector3.Cross(Vector3.up, moveDirection);
 
-        rb.AddTorque(torqueDirection * torqueStrength, ForceMode.Acceleration);
-        rb.AddForce(moveDirection * airControlStrength, ForceMode.Acceleration);
+
+        // THIS IS AN ISSUE, we may be able to just use the addForce, but I did with torque as it spun the ball. Imma go with just the Addforce. The torque is more IRL but who gaf fr.
+        //rb.AddTorque(torqueDirection * torqueStrength, ForceMode.Acceleration);
+        rb.AddForce(moveDirection * forceStrength, ForceMode.Acceleration);
     }
 }
