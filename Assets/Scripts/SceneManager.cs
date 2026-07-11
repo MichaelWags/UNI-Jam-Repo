@@ -34,4 +34,9 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
     }
+
+    public void OnPressQuit()
+    {
+        Application.Quit();
+    }
 }
