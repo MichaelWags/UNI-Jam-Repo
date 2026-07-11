@@ -7,6 +7,7 @@ public class BoulderControls : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private float torqueStrength = 20f;
+    [SerializeField] private float airControlStrength = 20f;
 
     private Rigidbody rb;
     private Vector2 moveInput;
@@ -70,5 +71,6 @@ public class BoulderControls : MonoBehaviour
         Vector3 torqueDirection = Vector3.Cross(Vector3.up, moveDirection);
 
         rb.AddTorque(torqueDirection * torqueStrength, ForceMode.Acceleration);
+        rb.AddForce(moveDirection * airControlStrength, ForceMode.Acceleration);
     }
 }
